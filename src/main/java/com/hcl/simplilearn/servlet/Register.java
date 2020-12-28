@@ -23,26 +23,28 @@ public class Register extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            registerNewUser(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doPost(request, response);
+    }
 
-        } catch (IOException e) {
-            System.out.println("There was an IO error");
-            e.printStackTrace();
-        }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        registerNewUser(request, response);
     }
 
     private void registerNewUser(HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
+            HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         User user = new User(username, password, email);
+
         if (dataAccessLayer.register(user)) {
-            response.getWriter().println("Good!!");
+            response.sendRedirect("login.jsp");
         } else {
-            response.getWriter().println("Bad!!");
+            response.getWriter().print("BAD");
         }
     }
 }
