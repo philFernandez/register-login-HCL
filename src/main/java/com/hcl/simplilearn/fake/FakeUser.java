@@ -6,6 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class FakeUser {
+    /**
+     * Test h2 and hibernate 
+     */
     public static void main(String[] args) {
         Transaction transaction = null;
         try (Session session = HibernateUtility.getSessionFactory().openSession()) {
