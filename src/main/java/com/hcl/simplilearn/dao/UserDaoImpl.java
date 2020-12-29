@@ -35,6 +35,7 @@ public class UserDaoImpl implements IUserDao {
             transaction = session.beginTransaction();
             user = session.get(User.class, username);
             transaction.commit();
+            // check submitted password against password in database
             if(password.equals(user.getPassword())) {
                 return user;
             }
