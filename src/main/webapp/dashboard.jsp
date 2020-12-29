@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -18,15 +20,18 @@
                 <tr>
                     <th>User Name</th>
                     <th>User Email</th>
+                    <th class="hide">Password</th>
                 </tr>
                 <tr>
                     <td> ${user.getUsername()} </td>
                     <td> ${user.getEmail()} </td>
+                    <td class="hide"> ${user.getPassword()} </td>
                 </tr>
             </table>
             <hr>
-            <a href="index.jsp"><button style="padding-right: 10px;">Home</button></a>
-            <a href="logout.jsp"><button>Logout</button></a>
+            <a href="index.jsp"><button class="pad">Home</button></a>
+            <a href="logout.jsp"><button class="pad">Logout</button></a>
+            <button id="showpass">Show Password</button>
         </c:when>
         <c:otherwise>
             <h2>Please Login to View This Page</h2>

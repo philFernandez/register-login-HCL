@@ -1,0 +1,8 @@
+th.hide,
+td.hide {
+    display: none;
+}
+
+button.pad {
+  padding-right: 20px;
+}
