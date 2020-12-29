@@ -25,6 +25,9 @@
                 <tr>
                     <td> ${user.getUsername()} </td>
                     <td> ${user.getEmail()} </td>
+                    <!-- this would never be done in a real application
+                    because this element contains a user password in 
+                    clear text. This is just from demonstrative purposes. -->
                     <td class="hide"> ${user.getPassword()} </td>
                 </tr>
             </table>

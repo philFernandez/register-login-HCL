@@ -1,5 +1,9 @@
 th.hide,
 td.hide {
+    /* this would never be done in a real application
+       because these elements contain a user password in 
+       clear text. This is just from demonstrative purposes.
+     */
     display: none;
 }
 
