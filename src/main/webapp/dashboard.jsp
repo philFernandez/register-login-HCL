@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Dashboard</title>
 </head>
 
@@ -35,6 +34,7 @@
             <a href="index.jsp"><button class="pad">Home</button></a>
             <a href="logout.jsp"><button class="pad">Logout</button></a>
             <button id="showpass">Show Password</button>
+            <script src="script.js"></script>
         </c:when>
         <c:otherwise>
             <h2>Please Login to View This Page</h2>
