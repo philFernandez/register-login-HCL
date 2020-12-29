@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.hcl.simplilearn.dao.IUserDao;
 import com.hcl.simplilearn.dao.UserDaoImpl;
+import com.hcl.simplilearn.exception.UnameNotAvailableException;
 import com.hcl.simplilearn.model.User;
 
 @WebServlet(name = "Register",
@@ -31,11 +32,16 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        registerNewUser(request, response);
+        try {
+            registerNewUser(request, response);
+        } catch (UnameNotAvailableException e) {
+            throw new ServletException(e);
+        }
     }
 
     private void registerNewUser(HttpServletRequest request,
-            HttpServletResponse response) throws IOException, ServletException {
+            HttpServletResponse response)
+            throws IOException, ServletException, UnameNotAvailableException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
@@ -44,7 +50,7 @@ public class Register extends HttpServlet {
         if (dataAccessLayer.register(user)) {
             response.sendRedirect("login.jsp");
         } else {
-            response.getWriter().print("BAD");
+            throw new UnameNotAvailableException();
         }
     }
 }
