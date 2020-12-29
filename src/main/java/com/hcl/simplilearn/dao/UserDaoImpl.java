@@ -42,11 +42,4 @@ public class UserDaoImpl implements IUserDao {
         }
         return null;
     }
-
-    @Override
-    public boolean logout(User user) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-    
 }
