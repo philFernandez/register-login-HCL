@@ -17,6 +17,9 @@
         <tr>
             <td><a href="register.jsp">Register</a></td>
         </tr>
+        <tr>
+            <td><a href="dashboard.jsp">Dashboard</a></td>
+        </tr>
     </table>
 </body>
 

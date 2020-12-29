@@ -25,12 +25,15 @@
                 </tr>
             </table>
             <hr>
+            <a href="index.jsp"><button style="padding-right: 10px;">Home</button></a>
             <a href="logout.jsp"><button>Logout</button></a>
         </c:when>
         <c:otherwise>
             <h2>Please Login to View This Page</h2>
             <hr>
             <a href="login.jsp"><button>Login</button></a>
+            <h4>Need an account?</h4>
+            <a href="register.jsp"><button>Register</button></a>
         </c:otherwise>
     </c:choose>
 
