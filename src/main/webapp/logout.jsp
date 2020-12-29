@@ -12,5 +12,7 @@
    <h1>You're Logged Out...</h1>
    <hr>
    <h3>Goodbye!</h3>
+   <br>
+   <a href="index.jsp"><button>Home</button></a>
 </body>
 </html>
