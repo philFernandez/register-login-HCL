@@ -29,20 +29,14 @@ public class UserDaoImpl implements IUserDao {
     @Override
     public User login(String username, String password) {
         // username is the primary key id h2db
-        Transaction transaction = null;
         User user = null;
         try(Session session = HibernateUtility.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
             user = session.get(User.class, username);
-            transaction.commit();
             // check submitted password against password in database
             if(password.equals(user.getPassword())) {
                 return user;
             }
         } catch(Exception e) {
-            if(transaction != null) {
-                transaction.rollback();
-            }
             e.printStackTrace();
             return null;
         }
